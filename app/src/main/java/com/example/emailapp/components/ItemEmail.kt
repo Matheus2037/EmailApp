@@ -1,5 +1,6 @@
 package com.example.emailapp.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,12 +25,13 @@ import com.example.emailapp.data.Email
 import com.example.emailapp.data.LocalEmailDataProvider
 
 @Composable
-fun ItemEmail(email: Email, modifier: Modifier, navigateToDefault: (Long) -> Unit){
+fun ItemEmail(email: Email, modifier: Modifier = Modifier, navigateToDetail: (Long) -> Unit){
 
     Card(modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)) {
         Column(modifier = Modifier
             .padding(20.dp)
             .fillMaxWidth()
+            .clickable { navigateToDetail(email.id) }
         ) {
             Row (modifier = Modifier
                 .fillMaxWidth()
@@ -65,5 +67,5 @@ fun ItemEmail(email: Email, modifier: Modifier, navigateToDefault: (Long) -> Uni
 @Preview
 @Composable
 fun ItemEmailPreview(){
-    ItemEmail(email = LocalEmailDataProvider.get(4L), modifier = Modifier, navigateToDefault = {})
+    ItemEmail(email = LocalEmailDataProvider.get(4L), modifier = Modifier, navigateToDetail = {})
 }

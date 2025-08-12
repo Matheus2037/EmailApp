@@ -30,7 +30,7 @@ import com.example.emailapp.data.LocalEmailDataProvider
 import kotlin.math.max
 
 @Composable
-fun SearchBar(modifier: Modifier){
+fun SearchBar(modifier: Modifier = Modifier){
     Row(
         modifier = modifier
             .fillMaxWidth()
