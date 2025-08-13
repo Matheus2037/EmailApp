@@ -10,4 +10,6 @@
     <string name="tab_favorite">tab_favorite</string>
     <string name="tab_settings">tab_settings</string>
     <string name="tab_profile">tab_profile</string>
+    <string name="funcionalidade_construcao">Funcionalidade em Construção</string>
+    <string name="func_ainda_construcao">Essa funcionalidade ainda está em construção</string>
 </resources>

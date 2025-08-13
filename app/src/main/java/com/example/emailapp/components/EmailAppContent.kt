@@ -47,7 +47,7 @@ fun EmailAppContent(
             InboxScreen(uiState = uiState, uiAction = uiAction, modifier = Modifier.weight(1f))
         }
         else{
-            //Empty screen deve ser implementado aqui
+            EmptyScreen(modifier = Modifier.weight(1f))
         }
         NavigationBar(modifier = modifier.fillMaxWidth()) {
             TOP_LEVEL_DESTINATIONS.forEach { destination ->
