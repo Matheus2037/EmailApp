@@ -5,4 +5,9 @@
     <string name="back">Voltar</string>
     <string name="more">Mais</string>
     <string name="favorite">Favorito</string>
+    <string name="edit">Editar</string>
+    <string name="tab_inbox">tab_inbox</string>
+    <string name="tab_favorite">tab_favorite</string>
+    <string name="tab_settings">tab_settings</string>
+    <string name="tab_profile">tab_profile</string>
 </resources>
