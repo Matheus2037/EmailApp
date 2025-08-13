@@ -27,10 +27,9 @@ fun InboxScreen(
     modifier: Modifier = Modifier,
     uiState: EmailUiState,
     uiAction: EmailUiAction,
-    emailLazyListState: LazyListState
 ) {
     val emailLazyListState = rememberLazyListState()
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = modifier.fillMaxSize()) {
         EmailContent(
             uiState = uiState,
             uiAction = uiAction,
@@ -64,7 +63,6 @@ fun InboxScreenPreview(){
             override fun back() {
                 TODO("Not yet implemented")
             }
-        },
-        emailLazyListState = rememberLazyListState()
+        }
     )
 }

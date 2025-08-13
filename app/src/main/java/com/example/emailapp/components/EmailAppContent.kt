@@ -1,32 +1,70 @@
 package com.example.emailapp.components
 
-import android.provider.Telephony.Mms.Inbox
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.emailapp.EmailUiAction
 import com.example.emailapp.EmailUiState
 import com.example.emailapp.R
 import com.example.emailapp.data.LocalEmailDataProvider
 
+
+@Composable
+fun EmailApp(
+    uiState: EmailUiState,
+    uiAction: EmailUiAction
+){
+    // Lógica aqui
+    EmailAppContent(uiState = uiState, uiAction = uiAction)
+}
+
 @Composable
 fun EmailAppContent(
     modifier: Modifier = Modifier,
     uiState: EmailUiState,
     uiAction: EmailUiAction,
-){
-    Column(modifier = Modifier.fillMaxSize()) {
+) {
+    Column(modifier = modifier.fillMaxSize()) {
 
+        val selectedDestination = remember { mutableStateOf(EmailRote.INBOX) }
+
+        if (selectedDestination.value == EmailRote.INBOX) {
+            InboxScreen(uiState = uiState, uiAction = uiAction, modifier = Modifier.weight(1f))
+        }
+        else{
+            //Empty screen deve ser implementado aqui
+        }
+        NavigationBar(modifier = modifier.fillMaxWidth()) {
+            TOP_LEVEL_DESTINATIONS.forEach { destination ->
+                NavigationBarItem(
+                    selected = selectedDestination.value == destination.route,
+                    onClick = {
+                        selectedDestination.value = destination.route
+                    },
+                    icon = {
+                        Icon(
+                            imageVector = destination.selectedIcon,
+                            contentDescription = stringResource(id = destination.iconTextId)
+                        )
+                    }
+                )
+            }
+        }
     }
 
 }

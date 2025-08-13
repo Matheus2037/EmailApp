@@ -23,8 +23,7 @@ fun EmailContent(
             uiState = uiState,
             uiAction = uiAction,
             emailLazyListState = emailLazyListState,
-            modifier = modifier
-        )
+            modifier = modifier)
     }
 }
 
