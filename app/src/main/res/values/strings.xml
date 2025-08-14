@@ -12,4 +12,6 @@
     <string name="tab_profile">tab_profile</string>
     <string name="funcionalidade_construcao">Funcionalidade em Construção</string>
     <string name="func_ainda_construcao">Essa funcionalidade ainda está em construção</string>
+    <string name="reply">Reponder</string>
+    <string name="reply_all">Responder todos</string>
 </resources>

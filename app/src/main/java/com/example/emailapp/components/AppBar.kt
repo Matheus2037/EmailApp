@@ -71,7 +71,7 @@ fun SearchBarPreview(){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EmailDetailAppBar(modifier: Modifier, email: Email, onBackPressed: () -> Unit){
+fun EmailDetailAppBar(modifier: Modifier = Modifier, email: Email, onBackPressed: () -> Unit){
 
     TopAppBar(title = {
         Column {

@@ -1,5 +1,6 @@
 package com.example.emailapp.components
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -17,7 +18,10 @@ fun EmailContent(
     emailLazyListState: LazyListState
 ){
     if (uiState.selectedEmail != null && uiState.isDetailOnlyOpen) {
-        //Deve ser implementado a tela de detail!
+        BackHandler {
+            uiAction.back()
+        }
+        EmailDetail(email = uiState.selectedEmail, uiAction = uiAction)
     } else{
         ListEmail(
             uiState = uiState,
